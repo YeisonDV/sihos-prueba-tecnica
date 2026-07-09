@@ -57,3 +57,99 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+
+# SIHOS - Prueba Técnica Desarrollador
+
+Sistema de gestión de pacientes desarrollado con Laravel, MySQL y JavaScript (fetch API).
+
+## Requisitos previos
+
+- PHP >= 8.2
+- Composer
+- MySQL
+- Node.js y npm
+
+## Instalación
+
+1. Clonar el repositorio:
+```bash
+git clone https://github.com/YeisonDV/sihos-prueba-tecnica.git
+cd sihos-prueba-tecnica
+```
+
+2. Instalar dependencias de PHP:
+```bash
+composer install
+```
+
+3. Instalar dependencias de JavaScript:
+```bash
+npm install
+```
+
+4. Copiar el archivo de entorno y configurar la base de datos:
+```bash
+cp .env.example .env
+php artisan key:generate
+```
+
+Editar `.env` con tus credenciales de MySQL:
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=sihos_pacientes
+DB_USERNAME=root
+DB_PASSWORD=
+
+5. Crear la base de datos `sihos_pacientes` en MySQL (vacía).
+
+6. Ejecutar migraciones y seeders:
+```bash
+php artisan migrate --seed
+```
+
+7. Compilar los assets:
+```bash
+npm run build
+```
+
+## Ejecución
+
+En dos terminales separadas:
+```bash
+php artisan serve
+npm run dev
+```
+
+Acceder a `http://127.0.0.1:8000`
+
+**Usuario administrador:**
+- Email: `admin@sihos.com`
+- Contraseña: `1234567890`
+
+## Funcionalidades
+
+- CRUD completo de pacientes (crear, listar, editar, eliminar)
+- Búsqueda por nombre o correo
+- Paginación
+- Validaciones de datos (correo, documento único, campos requeridos)
+- Autenticación mediante sesiones (Laravel Breeze)
+- API RESTful con rutas protegidas
+- Capa de acceso adicional con PDO puro (`/reportes/pacientes-por-departamento`)
+
+## Pruebas
+
+Ejecutar las pruebas unitarias con:
+```bash
+php artisan test
+```
+
+## Tecnologías utilizadas
+
+- Laravel 11
+- MySQL
+- Blade + Tailwind CSS
+- JavaScript (Fetch API)
+- PHPUnit
